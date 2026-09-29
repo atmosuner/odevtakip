@@ -1,0 +1,45 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+  directory = "netlify/functions"
+
+# Tek sayfa uygulaması: /api dışındaki her yol index.html'e düşer.
+# Sıra önemli — API kuralı önce gelmeli, yoksa /api/* de index.html'e gider.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Çerçeveleme engellenir: oturum çerezi olan bir sayfa gömülmemeli.
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
+
+# Font ve ikonlar içerik özetli değil ama nadiren değişir; orta ömür yeterli.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/ikonlar/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Vite çıktısı içerik özetli; uzun süre önbelleklenebilir.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

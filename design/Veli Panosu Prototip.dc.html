@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="tema.css">
+</helmet>
+<div style="min-height:100vh;display:flex;flex-wrap:wrap;gap:48px;justify-content:center;align-items:flex-start;padding:40px 24px;box-sizing:border-box;background:var(--yuzey-2);color:var(--murekkep);font-family:var(--yazi-aile)">
+  <div data-screen-label="Prototip telefon" style="flex:none;width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.2)">
+    <sc-if value="{{ panoda }}" hint-placeholder-val="{{ false }}">
+      <dc-import name="Pano" cocuklar="{{ cocuklar }}" durum="{{ durum }}" secici="{{ secici }}" bant="{{ bant }}" on-ayarlar="{{ ayarlar }}" on-cocuk-ekle="{{ cocukEkle }}" on-yeniden-bagla="{{ yenidenBagla }}" hint-size="375px,812px" style="width:375px;height:812px"></dc-import>
+    </sc-if>
+    <sc-if value="{{ hesapta }}" hint-placeholder-val="{{ true }}">
+      <dc-import name="HesapEkranlari" ekran="{{ ekran }}" on-git="{{ git }}" hint-size="375px,812px" style="width:375px;height:812px"></dc-import>
+    </sc-if>
+  </div>
+
+  <aside style="flex:0 1 340px;min-width:280px;display:flex;flex-direction:column;gap:24px">
+    <div>
+      <div style="font-size:22px;font-weight:700;letter-spacing:-0.015em">Prototip</div>
+      <div style="font-size:14px;line-height:1.5;color:var(--murekkep-2);margin-top:6px;text-wrap:pretty">Girişten panoya kadar akış tıklanabilir. A3’te QR koda dokunmak, çocuğun telefonunda açılan izin ekranını gösterir. Panoda çocuk, gün, ay (ok ya da kaydırma) ve eksik bandı çalışır. <a href="Veli Panosu Tasarim.dc.html">Tüm ekranlar</a></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:13px;font-weight:700;color:var(--murekkep-2)">Ekrana git</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ ekranlar }}" as="b"><button onClick="{{ b.sec }}" style="{{ b.stil }}">{{ b.ad }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:13px;font-weight:700;color:var(--murekkep-2)">Pano durumu</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ durumlar }}" as="b"><button onClick="{{ b.sec }}" style="{{ b.stil }}">{{ b.ad }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:13px;font-weight:700;color:var(--murekkep-2)">Çocuk sayısı</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ sayilar }}" as="b"><button onClick="{{ b.sec }}" style="{{ b.stil }}">{{ b.ad }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:13px;font-weight:700;color:var(--murekkep-2)">Varyant</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ varyantlar }}" as="b"><button onClick="{{ b.sec }}" style="{{ b.stil }}">{{ b.ad }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:13px;font-weight:700;color:var(--murekkep-2)">Tema</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <sc-for list="{{ temalar }}" as="b"><button onClick="{{ b.sec }}" style="{{ b.stil }}">{{ b.ad }}</button></sc-for>
+      </div>
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const KEY = 'odevdefteri-prototip';
+class Component extends DCLogic {
+  state = (() => { try { return { ekran: 'giris', durum: 'normal', cocuklar: '2', varyant: 'A', tema: 'sistem', ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch (e) { return { ekran: 'giris', durum: 'normal', cocuklar: '2', varyant: 'A', tema: 'sistem' }; } })();
+  componentDidMount() { this.tema(); }
+  componentDidUpdate() {
+    this.tema();
+    try { localStorage.setItem(KEY, JSON.stringify(this.state)); } catch (e) {}
+  }
+  tema() { const t = this.state.tema; if (t === 'sistem') delete document.documentElement.dataset.tema; else document.documentElement.dataset.tema = t; }
+  renderVals() {
+    const s = this.state;
+    const stil = (on) => ({ minHeight: 36, padding: '0 12px', borderRadius: 18, border: '1px solid ' + (on ? 'var(--murekkep)' : 'var(--cizgi)'), background: on ? 'var(--murekkep)' : 'var(--yuzey)', color: on ? 'var(--ters)' : 'var(--murekkep)', font: '600 13px var(--yazi-aile)', cursor: 'pointer' });
+    const grup = (key, list, extra) => list.map(([v, ad]) => ({ ad, stil: stil(s[key] === v), sec: () => this.setState({ [key]: v, ...(extra ? extra(v) : {}) }) }));
+    return {
+      panoda: s.ekran === 'pano', hesapta: s.ekran !== 'pano',
+      ekran: s.ekran, durum: s.durum, cocuklar: s.cocuklar, secici: s.varyant, bant: s.varyant,
+      git: (e) => this.setState({ ekran: e }),
+      ayarlar: () => this.setState({ ekran: 'ayarlar' }),
+      cocukEkle: () => this.setState({ ekran: 'kurulum-2' }),
+      yenidenBagla: () => this.setState({ ekran: 'bagla' }),
+      ekranlar: grup('ekran', [['acilis', 'Açılış'], ['giris', 'Giriş'], ['eposta', 'E-posta'], ['gecersiz', 'Geçersiz bağlantı'], ['kurulum-1', 'Kurulum'], ['bagla', 'Çocuk bağla'], ['izin', 'Çocuğun ekranı'], ['hata', 'Hata'], ['pano', 'Pano'], ['ayarlar', 'Ayarlar']]),
+      durumlar: grup('durum', [['normal', 'Normal'], ['eksik-yok', 'Eksik yok'], ['kopuk', 'Bağlantı koptu'], ['yukleniyor', 'Yükleniyor'], ['veri-yok', 'İlk tarama'], ['cocuk-yok', 'Çocuk yok'], ['eski', 'Veri eski'], ['cevrimdisi', 'Çevrimdışı']], () => ({ ekran: 'pano' })),
+      sayilar: grup('cocuklar', [['1', '1'], ['2', '2'], ['4', '4']], () => ({ ekran: 'pano' })),
+      varyantlar: grup('varyant', [['A', '1a · raf + kartçık'], ['B', '1b · sıradaki + rozet']], () => ({ ekran: 'pano' })),
+      temalar: grup('tema', [['sistem', 'Sistem'], ['acik', 'Açık'], ['koyu', 'Koyu']])
+    };
+  }
+}
+</script>
+</body>
+</html>

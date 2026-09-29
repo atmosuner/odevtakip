@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.netlify/
+.env
+.env.*
+!.env.ornek
+*.local
+.DS_Store
+
+# Windows'ta /dev/null yönlendirmesinden kalan dosya
+dev/

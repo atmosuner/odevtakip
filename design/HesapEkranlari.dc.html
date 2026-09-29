@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="tema.css">
+</helmet>
+<div style="position:relative;width:100%;height:100%;overflow:hidden;display:flex;flex-direction:column;background:var(--zemin);color:var(--murekkep);font-family:var(--yazi-aile);-webkit-font-smoothing:antialiased">
+  <div style="height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:15px;font-weight:600">
+    <span>09:41</span>
+    <div style="display:flex;gap:6px;align-items:center"><div style="width:17px;height:10px;border-radius:2px;background:var(--murekkep)"></div><div style="width:25px;height:12px;border-radius:3px;border:1.5px solid var(--murekkep);padding:1.5px;box-sizing:border-box"><div style="width:72%;height:100%;border-radius:1px;background:var(--murekkep)"></div></div></div>
+  </div>
+
+  <sc-if value="{{ e.ikon }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:28px 26px;background:var(--yuzey-2)">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px;justify-items:center">
+        <sc-for list="{{ bosIkonlar }}" as="x" hint-placeholder-count="7"><div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:62px;height:62px;border-radius:16px;background:var(--cizgi)"></div><div style="width:40px;height:8px;border-radius:4px;background:var(--cizgi)"></div></div></sc-for>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <div style="width:62px;height:62px;border-radius:16px;background:oklch(0.972 0.009 85);box-shadow:0 1px 3px oklch(0.2 0.02 60 / 0.2);display:flex;align-items:center;justify-content:center;gap:5px">
+            <span style="width:9px;height:9px;transform:rotate(45deg);border-radius:1.5px;background:oklch(0.6 0.13 48)"></span><span style="width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 2px oklch(0.26 0.014 60)"></span><span style="width:9px;height:9px;border-radius:50%;background:oklch(0.58 0.09 155)"></span>
+          </div>
+          <div style="font-size:12px;font-weight:500">Ödev Defteri</div>
+        </div>
+      </div>
+      <div style="margin-top:auto;padding:16px;border-radius:var(--kose-l);background:var(--yuzey);display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:var(--yazi-govde);font-weight:700">Ana ekran ikonu</div>
+        <div style="font-size:var(--yazi-meta);line-height:1.45;color:var(--murekkep-2)">Üç durum şekli: eksik, bekliyor, teslim. Tam ekran (standalone) açılır; tarayıcı çubuğu yok, üstte yalnızca sistem durum çubuğu.</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.acilis }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding-bottom:60px">
+      <div style="width:96px;height:96px;border-radius:26px;background:var(--yuzey);border:1px solid var(--cizgi);display:flex;align-items:center;justify-content:center;gap:8px">
+        <span style="width:14px;height:14px;transform:rotate(45deg);border-radius:2px;background:var(--renk-eksik)"></span><span style="width:17px;height:17px;border-radius:50%;box-shadow:inset 0 0 0 3px var(--murekkep)"></span><span style="width:14px;height:14px;border-radius:50%;background:var(--renk-tamam)"></span>
+      </div>
+      <div style="font-size:var(--yazi-baslik);font-weight:700;letter-spacing:-0.015em">Ödev Defteri</div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.giris }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:8px 24px 36px">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <div style="display:flex;gap:7px;align-items:center"><span style="width:11px;height:11px;transform:rotate(45deg);border-radius:2px;background:var(--renk-eksik)"></span><span style="width:13px;height:13px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--murekkep)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--renk-tamam)"></span></div>
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Ödev Defteri</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2)">Çocuklarınızın Google Classroom ödevleri, tek bakışta.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:var(--yazi-meta);font-weight:600;color:var(--murekkep-2)">E-posta adresiniz
+          <input type="email" inputmode="email" autocomplete="email" value="{{ eposta }}" onChange="{{ epostaDegis }}" style="min-height:52px;padding:0 16px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:500 16px var(--yazi-aile)"></input>
+        </label>
+        <button onClick="{{ git.eposta }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Giriş bağlantısı gönder</button>
+        <div style="font-size:var(--yazi-meta);line-height:1.45;color:var(--murekkep-3);text-align:center;text-wrap:pretty">Parola yok. E-postanıza gelen bağlantıya dokunarak girersiniz.</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.eposta }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:8px 24px 36px">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <div style="width:52px;height:40px;border-radius:8px;border:2px solid var(--murekkep);box-sizing:border-box;position:relative;overflow:hidden"><div style="position:absolute;left:50%;top:-22px;width:32px;height:32px;margin-left:-16px;transform:rotate(45deg);border:2px solid var(--murekkep)"></div></div>
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">E-postanızı kontrol edin</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty"><strong style="color:var(--murekkep)">{{ eposta }}</strong> adresine bir giriş bağlantısı gönderdik. Bağlantıya bu telefonda dokunun; 15 dakika geçerli.</div>
+        <div style="font-size:var(--yazi-meta);color:var(--murekkep-3)">Gelmediyse gereksiz (spam) klasörüne bakın.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.kurulum1 }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">E-posta uygulamasını aç</button>
+        <div style="display:flex;gap:10px">
+          <button disabled="{{ true }}" style="flex:1;min-height:48px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:transparent;color:var(--murekkep-3);font:600 15px var(--yazi-aile)">Tekrar gönder · 0:42</button>
+          <button onClick="{{ git.giris }}" style="flex:1;min-height:48px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">Farklı adres</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.gecersiz }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:8px 24px 36px">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <span style="width:22px;height:22px;border-radius:50%;border:2px dashed var(--murekkep-2)"></span>
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Bu bağlantı artık geçerli değil</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">Giriş bağlantıları 15 dakika geçerlidir ve yalnızca bir kez kullanılabilir. Yenisini gönderelim.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.eposta }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">{{ eposta }} adresine yeni bağlantı gönder</button>
+        <button onClick="{{ git.giris }}" style="min-height:48px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">Farklı adres kullan</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ kurulumUst }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:none;padding:6px 24px 0;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;font-size:var(--yazi-meta);font-weight:600;color:var(--murekkep-2)"><span>Kurulum</span><span>Adım {{ adim }} / 3</span></div>
+      <div style="display:flex;gap:6px">
+        <sc-for list="{{ adimlar }}" as="a" hint-placeholder-count="3"><span style="flex:1;height:4px;border-radius:2px;background:{{ a.renk }}"></span></sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.kurulum1 }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:28px 24px 36px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Hanenize bir ad verin</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2)">Panonun üstünde görünür. Sonra değiştirebilirsiniz.</div>
+        <input value="{{ hane }}" onChange="{{ haneDegis }}" aria-label="Hane adı" style="margin-top:8px;min-height:52px;padding:0 16px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:500 17px var(--yazi-aile)"></input>
+      </div>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.kurulum2 }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Devam</button>
+        <button onClick="{{ git.kurulum2 }}" style="min-height:48px;border-radius:var(--kose-m);border:none;background:transparent;color:var(--murekkep-2);font:600 15px var(--yazi-aile);cursor:pointer">Atla — “Ailem” olarak kalsın</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.kurulum2 }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:28px 24px 36px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Bir çocuk ekleyin</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">Şimdilik adı yeterli. Sonraki adımda çocuğunuz kendi telefonunda ya da bilgisayarında izin verecek.</div>
+        <label style="margin-top:8px;display:flex;flex-direction:column;gap:6px;font-size:var(--yazi-meta);font-weight:600;color:var(--murekkep-2)">Çocuğun adı
+          <input value="{{ cocuk }}" onChange="{{ cocukDegis }}" style="min-height:52px;padding:0 16px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:500 17px var(--yazi-aile)"></input>
+        </label>
+      </div>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.bagla }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">İzin bağlantısı oluştur</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.bagla }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;min-height:0;overflow-y:auto;padding:22px 24px 16px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">{{ cocukIn }} iznini alın</div>
+      <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">Google, velinin kendi hesabıyla çocuğun ödevlerini okumasına izin vermiyor; bu erişimi {{ cocuk }} kendi hesabıyla vermeli.</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 16px 16px;border-radius:var(--kose-l);background:var(--yuzey);border:1px solid var(--cizgi)">
+        <button onClick="{{ git.izin }}" aria-label="QR kod" style="padding:12px;border:none;border-radius:12px;background:#fff;cursor:pointer">
+          <div style="display:grid;grid-template-columns:repeat({{ qrModul }}, {{ qrBoyut }});grid-auto-rows:{{ qrBoyut }}">
+            <sc-for list="{{ qr }}" as="q" hint-placeholder-count="1369"><span style="background:{{ q.r }}"></span></sc-for>
+          </div>
+        </button>
+        <div style="font-size:var(--yazi-govde);font-weight:600;text-align:center">{{ cocuk }} yanınızdaysa</div>
+        <div style="font-size:var(--yazi-meta);line-height:1.45;color:var(--murekkep-2);text-align:center;text-wrap:pretty">Telefonunun kamerasıyla bu kodu okutsun, açılan sayfada izin versin.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:var(--yazi-meta);font-weight:600;color:var(--murekkep-2)">Yanınızda değilse bağlantıyı gönderin</div>
+        <div style="display:flex;gap:10px">
+          <button style="flex:1;min-height:48px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 15px var(--yazi-aile);cursor:pointer">Paylaş…</button>
+          <button onClick="{{ kopyala }}" style="flex:1;min-height:48px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">{{ kopyalaMetin }}</button>
+        </div>
+        <div style="font-size:var(--yazi-kucuk);color:var(--murekkep-3)">odevdefteri.app/i/7KQ2MX · 24 saat geçerli, tek kullanımlık</div>
+      </div>
+    </div>
+    <div role="status" style="flex:none;display:flex;align-items:center;gap:12px;padding:12px 16px 30px 24px;border-top:1px solid var(--cizgi);background:var(--yuzey)">
+      <span style="flex:none;width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--renk-bekliyor)"></span>
+      <div style="flex:1;min-width:0;font-size:var(--yazi-govde);font-weight:600">{{ cocukIn }} izin vermesi bekleniyor</div>
+      <button onClick="{{ git.kurulum2 }}" style="flex:none;min-height:44px;padding:0 16px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:transparent;color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">İptal</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.izin }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;min-height:0;overflow-y:auto;padding:12px 24px 16px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:6px;font-size:var(--yazi-meta);font-weight:600;color:var(--murekkep-2)"><span style="width:8px;height:8px;transform:rotate(45deg);border-radius:1px;background:var(--renk-eksik)"></span><span style="width:9px;height:9px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--murekkep)"></span><span style="width:8px;height:8px;border-radius:50%;background:var(--renk-tamam)"></span><span style="margin-left:4px">Ödev Defteri</span></div>
+      <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Merhaba {{ cocuk }},</div>
+      <div style="font-size:var(--yazi-govde);line-height:1.5;text-wrap:pretty"><strong>{{ ebeveynAdlari }}</strong> ({{ haneAdi }}) Classroom ödevlerini görmek için senden izin istiyor.</div>
+      <div style="padding:16px;border-radius:var(--kose-l);background:var(--yuzey);border:1px solid var(--cizgi);display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:var(--yazi-meta);font-weight:700;color:var(--murekkep-2)">Görebilecekleri</div>
+        <div style="display:flex;gap:10px;font-size:var(--yazi-govde);line-height:1.4"><span style="flex:none;margin-top:6px;width:7px;height:7px;border-radius:50%;background:var(--renk-tamam)"></span>Hangi ödevlerin olduğu ve son teslim günleri</div>
+        <div style="display:flex;gap:10px;font-size:var(--yazi-govde);line-height:1.4"><span style="flex:none;margin-top:6px;width:7px;height:7px;border-radius:50%;background:var(--renk-tamam)"></span>Ödevi teslim edip etmediğin</div>
+        <div style="display:flex;gap:10px;font-size:var(--yazi-govde);line-height:1.4"><span style="flex:none;margin-top:6px;width:7px;height:7px;border-radius:50%;background:var(--renk-tamam)"></span>Öğretmeninin verdiği notlar</div>
+      </div>
+      <div style="padding:16px;border-radius:var(--kose-l);border:1px dashed var(--cizgi);display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:var(--yazi-meta);font-weight:700;color:var(--murekkep-2)">Göremeyecekleri, yapamayacakları</div>
+        <div style="display:flex;gap:10px;font-size:var(--yazi-govde);line-height:1.4;color:var(--murekkep-2)"><span style="flex:none;margin-top:6px;width:8px;height:8px;border-radius:50%;box-shadow:inset 0 0 0 1.5px currentColor"></span>Teslim ettiğin dosyaların içi, mesajların, e-postaların</div>
+        <div style="display:flex;gap:10px;font-size:var(--yazi-govde);line-height:1.4;color:var(--murekkep-2)"><span style="flex:none;margin-top:6px;width:8px;height:8px;border-radius:50%;box-shadow:inset 0 0 0 1.5px currentColor"></span>Senin yerine ödev teslim etmek ya da bir şey değiştirmek</div>
+      </div>
+      <div style="font-size:var(--yazi-meta);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">İznini istediğin zaman Google hesabının ayarlarından kaldırabilirsin. Kaldırırsan panoda “bağlantı koptu” yazar; bu gizli değildir.</div>
+    </div>
+    <div style="flex:none;display:flex;flex-direction:column;gap:8px;padding:12px 24px 30px;border-top:1px solid var(--cizgi);background:var(--zemin)">
+      <button onClick="{{ git.basari }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Google ile izin ver</button>
+      <div style="font-size:var(--yazi-kucuk);color:var(--murekkep-3);text-align:center">Google okul hesabını seçmeni isteyecek.</div>
+      <button onClick="{{ git.hata }}" style="min-height:44px;border:none;background:transparent;color:var(--murekkep-2);font:600 15px var(--yazi-aile);cursor:pointer">Şimdi değil</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.basari }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:8px 24px 36px">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <span style="width:18px;height:18px;border-radius:50%;background:var(--renk-tamam)"></span>
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">{{ cocuk }} bağlandı</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">İlk ödev taraması birkaç dakika içinde tamamlanır. Sonrasında veriler 30 dakikada bir yenilenir.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.kurulum3 }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Devam</button>
+        <button onClick="{{ git.kurulum2 }}" style="min-height:48px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">Başka çocuk ekle</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.hata }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:8px 24px 36px">
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <span style="width:22px;height:22px;border-radius:50%;border:2px dashed var(--murekkep-2)"></span>
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Bağlantı kurulamadı</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">{{ cocuk }} izin ekranını kapattı ya da Classroom’un olmadığı bir hesapla giriş yaptı.</div>
+        <div style="padding:14px 16px;border-radius:var(--kose-m);background:var(--yuzey);border:1px solid var(--cizgi);font-size:var(--yazi-meta);line-height:1.5;color:var(--murekkep-2)">Classroom ödevleri genelde okulun verdiği hesaptadır (ör. ad.soyad@okul.k12.tr). Kişisel Gmail hesabında ödev görünmez.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.bagla }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Yeni izin bağlantısı oluştur</button>
+        <button onClick="{{ git.pano }}" style="min-height:48px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">Sonra yaparım</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.kurulum3 }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;flex-direction:column;padding:28px 24px 36px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:var(--yazi-vurgu);font-weight:700;letter-spacing:-0.02em;line-height:1.2">Diğer ebeveyni davet edin</div>
+        <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">Aynı panoyu görür, aynı ayarlara erişir. Tüm ebeveynler eşittir.</div>
+        <label style="margin-top:8px;display:flex;flex-direction:column;gap:6px;font-size:var(--yazi-meta);font-weight:600;color:var(--murekkep-2)">E-posta adresi
+          <input type="email" value="{{ davet }}" onChange="{{ davetDegis }}" style="min-height:52px;padding:0 16px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:var(--yuzey);color:var(--murekkep);font:500 16px var(--yazi-aile)"></input>
+        </label>
+      </div>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ git.pano }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Davet gönder ve panoya geç</button>
+        <button onClick="{{ git.pano }}" style="min-height:48px;border-radius:var(--kose-m);border:none;background:transparent;color:var(--murekkep-2);font:600 15px var(--yazi-aile);cursor:pointer">Şimdilik atla</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ ayarlarGoster }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:none;display:flex;align-items:center;gap:4px;padding:0 16px 4px 6px">
+      <button onClick="{{ git.pano }}" style="min-height:44px;padding:0 12px;border:none;background:transparent;color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">‹ Pano</button>
+    </div>
+    <div style="flex:1;min-height:0;overflow-y:auto;padding:4px 16px 32px;display:flex;flex-direction:column;gap:24px">
+      <label style="display:flex;flex-direction:column;gap:2px;padding:0 4px"><span style="font-size:var(--yazi-kucuk);font-weight:600;color:var(--murekkep-3)">Hane adı · dokunup değiştirin</span><input value="{{ haneAdi }}" onChange="{{ haneAdiDegis }}" onBlur="{{ haneAdiKaydet }}" aria-label="Hane adı" style="width:100%;box-sizing:border-box;margin:0 -4px;padding:2px 4px;border:none;border-bottom:1px dashed var(--cizgi);border-radius:0;background:transparent;color:var(--murekkep);font:700 var(--yazi-vurgu) var(--yazi-aile);letter-spacing:-0.02em" style-focus="border-bottom:1px solid var(--murekkep);outline:none"></input></label>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:0 4px;font-size:var(--yazi-meta);font-weight:700;color:var(--murekkep-2)">Ebeveynler</div>
+        <div style="display:flex;flex-direction:column;gap:1px;border-radius:var(--kose-l);background:var(--cizgi);border:1px solid var(--cizgi);overflow:hidden">
+          <sc-for list="{{ ebeveynler }}" as="p" hint-placeholder-count="2">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--yuzey)"><span style="flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--cizgi);display:grid;place-items:center;font-size:14px;font-weight:600">{{ p.harf }}</span><div style="flex:1;min-width:0"><div style="font-size:var(--yazi-govde);font-weight:600">{{ p.ad }}<sc-if value="{{ p.benMiyim }}"> <span style="font-weight:500;color:var(--murekkep-3)">(siz)</span></sc-if></div><div style="font-size:var(--yazi-meta);color:var(--murekkep-3);overflow:hidden;text-overflow:ellipsis">{{ p.eposta }}</div></div><sc-if value="{{ p.cikarGoster }}"><button onClick="{{ p.cikar }}" aria-label="{{ p.cikarAria }}" style="flex:none;min-height:44px;padding:0 14px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:transparent;color:var(--murekkep-2);font:600 14px var(--yazi-aile);cursor:pointer">Çıkar</button></sc-if></div>
+          </sc-for>
+          <button onClick="{{ git.kurulum3 }}" style="min-height:52px;padding:0 16px;border:none;background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);text-align:left;cursor:pointer">+ Ebeveyn davet et</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:0 4px;font-size:var(--yazi-meta);font-weight:700;color:var(--murekkep-2)">Çocuklar</div>
+        <div style="display:flex;flex-direction:column;gap:1px;border-radius:var(--kose-l);background:var(--cizgi);border:1px solid var(--cizgi);overflow:hidden">
+          <sc-for list="{{ cocuklar }}" as="c" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:var(--yuzey)">
+            <div style="display:flex;align-items:center;gap:12px"><span style="position:relative;flex:none;width:36px;height:36px;border-radius:50%;background:{{ c.renk }};color:var(--cocuk-uzeri);display:grid;place-items:center;font-size:13px;font-weight:700">{{ c.harf }}<sc-if value="{{ c.koptu }}"><span style="position:absolute;bottom:-4px;right:-6px;width:14px;height:14px;box-sizing:border-box;border-radius:50%;background:var(--yuzey);border:2px dashed var(--murekkep-2)"></span></sc-if></span><div style="flex:1;min-width:0"><div style="font-size:var(--yazi-govde);font-weight:600">{{ c.ad }} · {{ c.sinif }}</div>
+              <sc-if value="{{ c.bagli }}"><div style="display:flex;align-items:center;gap:6px;font-size:var(--yazi-meta);color:var(--renk-tamam-metin)"><span style="flex:none;width:6px;height:6px;border-radius:50%;background:currentColor"></span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.durumMetin }}</span></div></sc-if>
+              <sc-if value="{{ c.bekliyor }}"><div style="display:flex;align-items:center;gap:6px;font-size:var(--yazi-meta);color:var(--murekkep-2)"><span style="flex:none;width:8px;height:8px;border-radius:50%;box-shadow:inset 0 0 0 1.5px currentColor"></span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.durumMetin }}</span></div></sc-if>
+              <sc-if value="{{ c.koptu }}"><div style="display:flex;align-items:center;gap:6px;font-size:var(--yazi-meta);color:var(--murekkep-2)"><span style="flex:none;width:8px;height:8px;box-sizing:border-box;border-radius:50%;border:1.5px dashed currentColor"></span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ c.durumMetin }}</span></div></sc-if>
+            </div></div>
+            <div style="display:flex;gap:8px;margin-left:48px;flex-wrap:wrap">
+              <sc-if value="{{ c.koptu }}"><button onClick="{{ c.yenidenBagla }}" style="min-height:44px;padding:0 14px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 14px var(--yazi-aile);cursor:pointer">Yeniden izin iste</button></sc-if>
+              <button onClick="{{ c.kaldir }}" aria-label="{{ c.kaldirAria }}" style="min-height:44px;padding:0 14px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:transparent;color:var(--murekkep-2);font:600 14px var(--yazi-aile);cursor:pointer">Bağlantıyı kaldır</button>
+            </div>
+          </div>
+          </sc-for>
+          <button onClick="{{ git.kurulum2 }}" style="min-height:52px;padding:0 16px;border:none;background:var(--yuzey);color:var(--murekkep);font:600 15px var(--yazi-aile);text-align:left;cursor:pointer">+ Çocuk ekle</button>
+        </div>
+      </div>
+      <button onClick="{{ git.giris }}" style="min-height:52px;border-radius:var(--kose-m);border:1px solid var(--cizgi);background:transparent;color:var(--murekkep);font:600 15px var(--yazi-aile);cursor:pointer">Çıkış yap</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ e.kaldir }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ git.ayarlar }}" style="position:absolute;inset:0;z-index:20;background:var(--perde)"></div>
+    <div role="alertdialog" aria-label="Bağlantıyı kaldır" style="position:absolute;left:0;right:0;bottom:0;z-index:21;display:flex;flex-direction:column;gap:14px;padding:22px 20px 30px;background:var(--zemin);border-radius:24px 24px 0 0;box-shadow:var(--golge-panel)">
+      <div style="font-size:var(--yazi-baslik);font-weight:700;letter-spacing:-0.015em;line-height:1.25">{{ cocukIn }} bağlantısı kaldırılsın mı?</div>
+      <div style="font-size:var(--yazi-govde);line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">{{ cocuk }} adına kayıtlı tüm ödev geçmişi bu panodan silinir ve geri getirilemez. Hanedeki tüm ebeveynler için kaybolur.</div>
+      <div style="font-size:var(--yazi-meta);line-height:1.5;color:var(--murekkep-3)">{{ cocukIn }} Google hesabı ve Classroom’daki ödevleri etkilenmez. Tekrar bağlamak için yeni izin gerekir.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+        <button onClick="{{ git.ayarlar }}" style="min-height:52px;border-radius:var(--kose-m);border:none;background:var(--murekkep);color:var(--ters);font:600 16px var(--yazi-aile);cursor:pointer">Vazgeç</button>
+        <button onClick="{{ git.ayarlar }}" style="min-height:52px;border-radius:var(--kose-m);border:1.5px solid var(--renk-eksik-metin);background:transparent;color:var(--renk-eksik-metin);font:600 16px var(--yazi-aile);cursor:pointer">Bağlantıyı ve geçmişi sil</button>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:375,&quot;height&quot;:812},&quot;ekran&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ikon&quot;,&quot;acilis&quot;,&quot;giris&quot;,&quot;eposta&quot;,&quot;gecersiz&quot;,&quot;kurulum-1&quot;,&quot;kurulum-2&quot;,&quot;bagla&quot;,&quot;izin&quot;,&quot;basari&quot;,&quot;hata&quot;,&quot;kurulum-3&quot;,&quot;ayarlar&quot;,&quot;kaldir&quot;],&quot;default&quot;:&quot;giris&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;haneAdi&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Üner Ailesi&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ebeveynAdlari&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Bahadır ve Elif&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ebeveynler&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{harf:string;ad:string;eposta:string;benMiyim:boolean;cikar?:()=&gt;void}[]&quot;},&quot;cocuklar&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{harf:string;ad:string;sinif:string;renk:string;baglantiDurumu:&#39;bekliyor&#39;|&#39;bagli&#39;|&#39;koptu&#39;;kaldir?:()=&gt;void;yenidenBagla?:()=&gt;void}[]&quot;},&quot;qr&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{r:string}[]&quot;},&quot;qrModul&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:37,&quot;tsType&quot;:&quot;number&quot;},&quot;qrBoyut&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;4px&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;onHaneAdiDegis&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(ad:string)=&gt;void&quot;},&quot;onEbeveynCikar&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(p)=&gt;void&quot;},&quot;onGit&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(ekran: string) =&gt; void&quot;}}">
+const UNLU = 'aeıioöuü';
+const tamlayan = (ad) => {
+  const s = (ad || '').toLocaleLowerCase('tr');
+  const v = [...s].reverse().find(ch => UNLU.includes(ch));
+  const ek = { a: 'ın', ı: 'ın', e: 'in', i: 'in', o: 'un', u: 'un', ö: 'ün', ü: 'ün' }[v] || 'in';
+  return ad + '’' + (UNLU.includes(s.slice(-1)) ? 'n' : '') + ek;
+};
+const qrUret = (N) => {
+  const out = [];
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const finder = (x, y, ox, oy) => {
+    const dx = x - ox, dy = y - oy;
+    if (dx < 0 || dy < 0 || dx > 6 || dy > 6) return null;
+    const m = Math.max(Math.abs(dx - 3), Math.abs(dy - 3));
+    return m === 3 || m <= 1;
+  };
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+    let v = finder(x, y, 0, 0) ?? finder(x, y, N - 7, 0) ?? finder(x, y, 0, N - 7);
+    if (v === null) {
+      const near = (x < 8 && y < 8) || (x > N - 9 && y < 8) || (x < 8 && y > N - 9);
+      v = near ? false : (y === 6 || x === 6) ? (x + y) % 2 === 0 : rnd() > 0.52;
+    }
+    out.push({ r: v ? '#1b1a18' : '#fff' });
+  }
+  return out;
+};
+const QR37 = qrUret(37);
+const MAP = { kurulum1: 'kurulum-1', kurulum2: 'kurulum-2', kurulum3: 'kurulum-3' };
+const EKRANLAR = ['ikon','acilis','giris','eposta','gecersiz','kurulum1','kurulum2','bagla','izin','basari','hata','kurulum3','ayarlar','kaldir','pano'];
+
+class Component extends DCLogic {
+  state = { eposta: 'bahadir.uner@gmail.com', hane: 'Üner Ailesi', haneTaslak: null, kaldirilacak: null, cocuk: 'Ahmet', davet: 'elif.uner@gmail.com', kopyalandi: false };
+  renderVals() {
+    const ekran = this.props.ekran ?? 'giris';
+    const e = {};
+    EKRANLAR.forEach(k => { e[k] = (MAP[k] || k) === ekran; });
+    const git = {};
+    EKRANLAR.forEach(k => { git[k] = () => { this.setState({ kopyalandi: false }); const f = this.props.onGit; if (typeof f === 'function') f(MAP[k] || k); }; });
+    const adim = e.kurulum1 ? 1 : (e.kurulum2 || e.bagla || e.hata || e.basari) ? 2 : e.kurulum3 ? 3 : 0;
+    const P = this.props, S = this.state;
+    const haneAdi = S.haneTaslak ?? P.haneAdi ?? S.hane;
+    const ebeveynVeri = P.ebeveynler ?? [
+      { harf: 'B', ad: 'Bahadır Üner', eposta: 'bahadir.uner@gmail.com', benMiyim: true },
+      { harf: 'E', ad: 'Elif Üner', eposta: 'elif.uner@gmail.com', benMiyim: false }];
+    const ebeveynler = ebeveynVeri.map(x => ({ ...x, cikarGoster: !x.benMiyim, cikarAria: x.ad + ' haneden çıkarılsın',
+      cikar: x.cikar || (() => { const f = P.onEbeveynCikar; if (typeof f === 'function') f(x); }) }));
+    const cocukVeri = P.cocuklar ?? [
+      { harf: 'A', ad: 'Ahmet', sinif: '5. sınıf', renk: 'var(--cocuk-1)', baglantiDurumu: 'bagli', hesap: 'ahmet.uner@okul.k12.tr' },
+      { harf: 'Z', ad: 'Zeynep', sinif: '8. sınıf', renk: 'var(--cocuk-2)', baglantiDurumu: 'koptu', koptuTarih: '27 Eylül’den beri' }];
+    const cocuklarL = cocukVeri.map(x => {
+      const d = x.baglantiDurumu;
+      return { ...x, bagli: d === 'bagli', bekliyor: d === 'bekliyor', koptu: d === 'koptu',
+        durumMetin: x.durumMetin ?? (d === 'bagli' ? 'Bağlı' + (x.hesap ? ' · ' + x.hesap : '') : d === 'bekliyor' ? 'İzin bekleniyor' : 'Bağlantı koptu' + (x.koptuTarih ? ' · ' + x.koptuTarih : '')),
+        kaldirAria: tamlayan(x.ad) + ' bağlantısını kaldır',
+        kaldir: x.kaldir || (() => { this.setState({ kaldirilacak: x.ad }); git.kaldir(); }),
+        yenidenBagla: x.yenidenBagla || (() => { this.setState({ cocuk: x.ad }); git.bagla(); }) };
+    });
+    const ebeveynAdlari = P.ebeveynAdlari ?? (() => { const a = ebeveynVeri.map(x => x.ad.split(' ')[0]); return a.length > 1 ? a.slice(0, -1).join(', ') + ' ve ' + a[a.length - 1] : (a[0] || ''); })();
+    const cocuk = (e.kaldir && S.kaldirilacak) || S.cocuk || 'Çocuğunuz';
+    const v = (k) => (ev) => this.setState({ [k]: ev.target.value });
+    return {
+      e, git, adim, kurulumUst: adim > 0,
+      adimlar: [1, 2, 3].map(i => ({ renk: i <= adim ? 'var(--murekkep)' : 'var(--cizgi)' })),
+      eposta: this.state.eposta, hane: this.state.hane, cocuk, cocukIn: tamlayan(cocuk), davet: this.state.davet,
+      epostaDegis: v('eposta'), haneDegis: v('hane'), cocukDegis: v('cocuk'), davetDegis: v('davet'),
+      haneAdi, ebeveynler, cocuklar: cocuklarL, ebeveynAdlari,
+      haneAdiDegis: (ev) => this.setState({ haneTaslak: ev.target.value }),
+      haneAdiKaydet: () => { const f = P.onHaneAdiDegis; if (typeof f === 'function' && S.haneTaslak != null) f(S.haneTaslak); },
+      qr: P.qr ?? QR37, qrModul: P.qrModul ?? 37, qrBoyut: P.qrBoyut ?? '4px', bosIkonlar: Array.from({ length: 7 }, (_, i) => i),
+      ayarlarGoster: e.ayarlar || e.kaldir,
+      kopyala: () => this.setState({ kopyalandi: true }),
+      kopyalaMetin: this.state.kopyalandi ? 'Kopyalandı' : 'Bağlantıyı kopyala'
+    };
+  }
+}
+</script>
+</body>
+</html>

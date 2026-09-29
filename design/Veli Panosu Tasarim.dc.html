@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="tema.css">
+</helmet>
+<div style="min-height:100vh;padding:72px 72px 120px;display:flex;flex-direction:column;gap:96px;background:var(--yuzey-2);color:var(--murekkep);font-family:var(--yazi-aile)">
+
+  <header style="display:flex;flex-direction:column;gap:12px;max-width:880px">
+    <div style="display:flex;gap:8px;align-items:center"><span style="width:12px;height:12px;transform:rotate(45deg);border-radius:2px;background:var(--renk-eksik)"></span><span style="width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 2.5px var(--murekkep)"></span><span style="width:12px;height:12px;border-radius:50%;background:var(--renk-tamam)"></span></div>
+    <h1 style="margin:0;font-size:44px;font-weight:700;letter-spacing:-0.03em">Ödev Defteri — veli panosu</h1>
+    <p style="margin:0;font-size:18px;line-height:1.5;color:var(--murekkep-2);text-wrap:pretty">Telefon öncelikli, salt okunur Classroom takibi. Bugün: 29 Eylül 2026 Salı. Tema: Tweaks panelinden sistem / açık / koyu. Tıklanabilir sürüm: <a href="Veli Panosu Prototip.dc.html">Prototip</a>.</p>
+  </header>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">1 · Alternatifler: çocuk seçici ve durum bandı</h2><p style="margin:8px 0 0;font-size:16px;color:var(--murekkep-2)">Önerim <a href="#1a">1a</a>. Gerekçeler 9. bölümde.</p></div>
+    <div style="display:flex;flex-wrap:wrap;gap:56px">
+      <div id="1a" style="display:flex;flex-direction:column;gap:20px;padding:32px;border-radius:28px;background:var(--zemin)">
+        <div style="display:flex;align-items:center;gap:12px"><span style="padding:4px 10px;border-radius:8px;background:var(--murekkep);color:var(--ters);font-size:14px;font-weight:700">1a</span><span style="font-size:17px;font-weight:700">Alt raf seçici + çocuk kartçıklı bant</span><span style="font-size:14px;color:var(--renk-tamam-metin);font-weight:600">Önerilen</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:40px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="font-size:14px;color:var(--murekkep-2)">2 çocuk</figcaption><div data-screen-label="1a 2 çocuk" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="Pano" cocuklar="2" secici="A" bant="A" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="font-size:14px;color:var(--murekkep-2)">4 çocuk</figcaption><div data-screen-label="1a 4 çocuk" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="Pano" cocuklar="4" secici="A" bant="A" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+        </div>
+      </div>
+      <div id="1b" style="display:flex;flex-direction:column;gap:20px;padding:32px;border-radius:28px;background:var(--zemin)">
+        <div style="display:flex;align-items:center;gap:12px"><span style="padding:4px 10px;border-radius:8px;background:var(--murekkep);color:var(--ters);font-size:14px;font-weight:700">1b</span><span style="font-size:17px;font-weight:700">“Sıradaki” düğmesi + toplam ve rozetli bant</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:40px">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="font-size:14px;color:var(--murekkep-2)">2 çocuk</figcaption><div data-screen-label="1b 2 çocuk" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="Pano" cocuklar="2" secici="B" bant="B" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="font-size:14px;color:var(--murekkep-2)">4 çocuk</figcaption><div data-screen-label="1b 4 çocuk" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="Pano" cocuklar="4" secici="B" bant="B" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">2 · Hesap, kurulum ve çocuk bağlama</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:48px 40px">
+      <sc-for list="{{ hesapKareler }}" as="f" hint-placeholder-count="12">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="display:flex;gap:8px;align-items:baseline;font-size:14px"><b>{{ f.kod }}</b><span style="color:var(--murekkep-2)">{{ f.ad }}</span></figcaption><div data-screen-label="{{ f.etiket }}" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="HesapEkranlari" ekran="{{ f.ekran }}" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">3 · Ana pano ve durumlar (1a ile)</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:48px 40px">
+      <sc-for list="{{ panoKareler }}" as="f" hint-placeholder-count="14">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="display:flex;gap:8px;align-items:baseline;font-size:14px"><b>{{ f.kod }}</b><span style="color:var(--murekkep-2)">{{ f.ad }}</span></figcaption><div data-screen-label="{{ f.etiket }}" style="width:{{ f.w }};height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="Pano" cocuklar="{{ f.n }}" durum="{{ f.durum }}" sayfa="{{ f.sayfa }}" secili="{{ f.secili }}" ay="{{ f.ay }}" hint-size="375px,812px" style="width:{{ f.w }};height:812px"></dc-import></div></figure>
+      </sc-for>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="display:flex;gap:8px;align-items:baseline;font-size:14px"><b>A4</b><span style="color:var(--murekkep-2)">Hane ayarları</span></figcaption><div data-screen-label="A4 Hane ayarları" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="HesapEkranlari" ekran="ayarlar" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="display:flex;gap:8px;align-items:baseline;font-size:14px"><b>A4</b><span style="color:var(--murekkep-2)">Bağlantıyı kaldır — onay</span></figcaption><div data-screen-label="A4 Kaldırma onayı" style="width:375px;height:812px;border-radius:44px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60),0 30px 60px oklch(0.2 0.02 60 / 0.18)"><dc-import name="HesapEkranlari" ekran="kaldir" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div></figure>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">4 · Masaüstü</h2><p style="margin:8px 0 0;font-size:16px;color:var(--murekkep-2);max-width:760px;text-wrap:pretty">Aynı bileşen; genişlik artınca çocuklar yan yana kolonlara açılır (4 çocukta 2×2 sarar), eksik listesi sheet yerine sağ sütunda sürekli görünür. Seçili gün tüm kolonlarda ortak.</p></div>
+    <div style="display:flex;flex-direction:column;gap:48px">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="font-size:14px"><b>D1</b> <span style="color:var(--murekkep-2)">Tek çocuk · 1280</span></figcaption><div data-screen-label="D1 Masaüstü tek çocuk" style="width:1280px;height:800px;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--cizgi),0 30px 60px oklch(0.2 0.02 60 / 0.14);padding-top:16px;background:var(--zemin);box-sizing:border-box"><dc-import name="Pano" cocuklar="1" duzen="masaustu" hint-size="1280px,784px" style="width:1280px;height:784px"></dc-import></div></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><figcaption style="font-size:14px"><b>D2</b> <span style="color:var(--murekkep-2)">İki çocuk · 1280 (Zeynep’in bağlantısı kopuk)</span></figcaption><div data-screen-label="D2 Masaüstü iki çocuk" style="width:1280px;height:980px;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--cizgi),0 30px 60px oklch(0.2 0.02 60 / 0.14);padding-top:16px;background:var(--zemin);box-sizing:border-box"><dc-import name="Pano" cocuklar="2" duzen="masaustu" durum="kopuk" hint-size="1280px,964px" style="width:1280px;height:964px"></dc-import></div></figure>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">5 · Takvim hücresi, yakın plan (×2.5)</h2><p style="margin:8px 0 0;font-size:16px;color:var(--murekkep-2)">Durum şekille de taşınır. Bir günde birden çok durum varsa: eksik › bekliyor › teslim.</p></div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px">
+      <sc-for list="{{ hucreler }}" as="h" hint-placeholder-count="8">
+        <div style="width:200px;display:flex;flex-direction:column;gap:14px;padding:24px 16px 20px;border-radius:24px;background:var(--zemin);align-items:center">
+          <div style="width:124px;height:140px;border-radius:24px;background:{{ h.zemin }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+            <span style="{{ h.sayi }}">{{ h.gun }}</span>
+            <span style="height:22px;display:flex;align-items:center;justify-content:center">
+              <sc-if value="{{ h.eksik }}"><span style="width:17px;height:17px;transform:rotate(45deg);border-radius:2px;background:var(--renk-eksik)"></span></sc-if>
+              <sc-if value="{{ h.bekliyor }}"><span style="width:20px;height:20px;border-radius:50%;box-shadow:inset 0 0 0 3.5px var(--renk-bekliyor)"></span></sc-if>
+              <sc-if value="{{ h.tamam }}"><span style="width:15px;height:15px;border-radius:50%;background:var(--renk-tamam)"></span></sc-if>
+            </span>
+          </div>
+          <div style="font-size:15px;font-weight:700;text-align:center">{{ h.ad }}</div>
+          <div style="font-size:13px;line-height:1.4;color:var(--murekkep-2);text-align:center;text-wrap:pretty">{{ h.not }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">6 · Çocuk seçici: 1, 2 ve 4 çocuk (1a)</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:40px">
+      <sc-for list="{{ seciciler }}" as="s" hint-placeholder-count="3">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <figcaption style="font-size:14px"><b>{{ s.ad }}</b> <span style="color:var(--murekkep-2)">{{ s.not }}</span></figcaption>
+          <div style="position:relative;width:375px;height:170px;border-radius:0 0 36px 36px;overflow:hidden;box-shadow:0 0 0 8px oklch(0.17 0.005 60)">
+            <div style="position:absolute;left:0;bottom:0;width:375px;height:812px"><dc-import name="Pano" cocuklar="{{ s.n }}" hint-size="375px,812px" style="width:375px;height:812px"></dc-import></div>
+          </div>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:32px">
+    <div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">7 · Renk paleti</h2><p style="margin:8px 0 0;font-size:16px;color:var(--murekkep-2);max-width:760px;text-wrap:pretty">Marka vurgusu yok: birincil düğmeler mürekkep rengi. Renk yalnızca durum ve çocuk kimliği taşır. Tüm değerler <a href="tema.css">tema.css</a> içinde; koyu tema <code>prefers-color-scheme</code> ile gelir, <code>data-tema</code> ile zorlanabilir.</p></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:1px;max-width:1100px;border-radius:20px;overflow:hidden;background:var(--cizgi);border:1px solid var(--cizgi)">
+      <div style="display:grid;grid-template-columns:230px 1fr 1fr 1.4fr;gap:16px;padding:12px 20px;background:var(--zemin);font-size:13px;font-weight:700;color:var(--murekkep-2)"><span>Değişken</span><span>Açık</span><span>Koyu</span><span>Kullanım</span></div>
+      <sc-for list="{{ renkler }}" as="r" hint-placeholder-count="16">
+        <div style="display:grid;grid-template-columns:230px 1fr 1fr 1.4fr;gap:16px;align-items:center;padding:10px 20px;background:var(--yuzey)">
+          <code style="font-size:14px;font-weight:600">{{ r.ad }}</code>
+          <div style="display:flex;align-items:center;gap:10px;min-width:0"><span style="flex:none;width:40px;height:28px;border-radius:8px;background:{{ r.acik }};box-shadow:inset 0 0 0 1px oklch(0.5 0 0 / 0.2)"></span><span style="font-size:12px;color:var(--murekkep-2)">{{ r.acik }}</span></div>
+          <div style="display:flex;align-items:center;gap:10px;min-width:0"><span style="flex:none;width:40px;height:28px;border-radius:8px;background:{{ r.koyu }};box-shadow:inset 0 0 0 1px oklch(0.5 0 0 / 0.2)"></span><span style="font-size:12px;color:var(--murekkep-2)">{{ r.koyu }}</span></div>
+          <span style="font-size:13px;color:var(--murekkep-2)">{{ r.kullanim }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:1100px">
+      <h3 style="margin:0;font-size:20px;font-weight:700">Çocuk alt paleti</h3>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:var(--murekkep-2);text-wrap:pretty"><code>--cocuk-n = oklch(var(--cocuk-L) var(--cocuk-C) TON[(n-1) % 6])</code>, TON = 255, 330, 205, 285, 95, 15. Açık: L 0.52 / C 0.10 (beyaz harf ≥ 4.5:1). Koyu: L 0.74 / C 0.09 (koyu harf). Tonlar durum renklerinden (45 eksik, 155 teslim) uzak tutuldu. Renk tek başına kimlik değil: her avatarda baş harf(ler) var — aynı baş harfte iki harf (“MA”).</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px">
+        <sc-for list="{{ cocukRenk }}" as="c" hint-placeholder-count="6">
+          <div style="display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:18px;background:var(--zemin);width:150px">
+            <div style="display:flex;gap:8px"><span style="width:44px;height:44px;border-radius:50%;background:{{ c.acik }};color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700">{{ c.harf }}</span><span style="width:44px;height:44px;border-radius:50%;background:{{ c.koyu }};color:oklch(0.2 0.008 70);display:grid;place-items:center;font-size:14px;font-weight:700;box-shadow:0 0 0 3px oklch(0.2 0.008 70)">{{ c.harf }}</span></div>
+            <code style="font-size:13px;font-weight:600">{{ c.ad }}</code>
+            <span style="font-size:12px;color:var(--murekkep-2)">ton {{ c.ton }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-wrap:wrap;gap:48px">
+    <div style="flex:1 1 520px;display:flex;flex-direction:column;gap:20px;max-width:640px">
+      <h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">8 · Tipografi</h2>
+      <p style="margin:0;font-size:15px;color:var(--murekkep-2)">Tek aile: Figtree (Türkçe karakter tam, rakamlar tabular). Ağırlıklar 400 / 500 / 600 / 700. Telefonda 12 px altı yok.</p>
+      <div style="display:flex;flex-direction:column;gap:1px;border-radius:20px;overflow:hidden;background:var(--cizgi);border:1px solid var(--cizgi)">
+        <sc-for list="{{ yazilar }}" as="y" hint-placeholder-count="6">
+          <div style="display:flex;align-items:baseline;gap:16px;padding:14px 20px;background:var(--yuzey)">
+            <code style="flex:none;width:150px;font-size:13px;font-weight:600">{{ y.ad }}</code>
+            <span style="flex:none;width:70px;font-size:12px;color:var(--murekkep-3)">{{ y.olcu }}</span>
+            <span style="{{ y.stil }}">{{ y.ornek }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:20px;max-width:520px">
+      <h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">Boşluk ve köşeler</h2>
+      <p style="margin:0;font-size:15px;color:var(--murekkep-2)">4 px taban. Dokunma hedefi <code>--dokunma: 44px</code>; birincil düğmeler 52 px.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:20px;background:var(--yuzey);border:1px solid var(--cizgi)">
+        <sc-for list="{{ bosluklar }}" as="b" hint-placeholder-count="8">
+          <div style="display:flex;align-items:center;gap:16px"><code style="flex:none;width:110px;font-size:13px;font-weight:600">{{ b.ad }}</code><span style="flex:none;width:44px;font-size:12px;color:var(--murekkep-3)">{{ b.px }}</span><span style="height:14px;width:{{ b.px }};border-radius:3px;background:var(--murekkep-3)"></span></div>
+        </sc-for>
+        <div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:56px;height:56px;border-radius:8px;border:1.5px solid var(--murekkep-3)"></span><code style="font-size:12px">--kose-s 8</code></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:56px;height:56px;border-radius:12px;border:1.5px solid var(--murekkep-3)"></span><code style="font-size:12px">--kose-m 12</code></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:56px;height:56px;border-radius:20px;border:1.5px solid var(--murekkep-3)"></span><code style="font-size:12px">--kose-l 20</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:28px;max-width:1100px">
+    <h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em">9 · Kararlar ve gerekçeleri</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px">
+      <sc-for list="{{ kararlar }}" as="k" hint-placeholder-count="10">
+        <div style="display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:20px;background:var(--yuzey);border:1px solid var(--cizgi)">
+          <div style="font-size:16px;font-weight:700">{{ k.baslik }}</div>
+          <div style="font-size:14px;line-height:1.55;color:var(--murekkep-2);text-wrap:pretty">{{ k.metin }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;tema&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sistem&quot;,&quot;acik&quot;,&quot;koyu&quot;],&quot;default&quot;:&quot;sistem&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  temaUygula() {
+    const t = this.props.tema ?? 'sistem';
+    if (t === 'sistem') delete document.documentElement.dataset.tema;
+    else document.documentElement.dataset.tema = t;
+  }
+  componentDidMount() { this.temaUygula(); }
+  componentDidUpdate() { this.temaUygula(); }
+  renderVals() {
+    const h = (kod, ad, ekran) => ({ kod, ad, ekran, etiket: `${kod} ${ad}` });
+    const p = (kod, ad, n, o = {}) => ({ kod, ad, n: String(n), durum: o.durum || 'normal', sayfa: o.sayfa || 'takvim', secili: String(o.secili || 0), ay: String(o.ay ?? 8), w: (o.w || 375) + 'px', etiket: `${kod} ${ad}` });
+    const num = (o = {}) => ({ width: 72, height: 72, borderRadius: '50%', display: 'grid', placeItems: 'center', fontSize: 32, fontWeight: o.kalin ? 700 : 450, fontVariantNumeric: 'tabular-nums', boxSizing: 'border-box', color: o.renk || 'var(--murekkep)', background: o.bg || 'transparent', border: o.border || 'none', boxShadow: o.shadow || 'none' });
+    const R = (ad, acik, koyu, kullanim) => ({ ad, acik, koyu, kullanim });
+    return {
+      hesapKareler: [
+        h('P1', 'Ana ekran ikonu (PWA)', 'ikon'), h('P2', 'Açılış ekranı', 'acilis'),
+        h('A1', 'Giriş', 'giris'), h('A1', 'E-postanı kontrol et', 'eposta'), h('A1', 'Bağlantı geçersiz', 'gecersiz'),
+        h('A2', 'Kurulum 1/3 · Hane adı', 'kurulum-1'), h('A2', 'Kurulum 2/3 · Çocuk adı', 'kurulum-2'),
+        h('A3', 'QR + paylaş + bekleme', 'bagla'), h('A3', 'Çocuğun gördüğü izin ekranı', 'izin'),
+        h('A3', 'Bağlantı kuruldu', 'basari'), h('A3', 'Bağlantı kurulamadı', 'hata'),
+        h('A2', 'Kurulum 3/3 · Ebeveyn davet', 'kurulum-3')
+      ],
+      panoKareler: [
+        p('B1', 'Tek çocuk', 1), p('B2', 'İki çocuk', 2), p('B3', 'Dört çocuk', 4),
+        p('B5', 'Eksik ödevler · 2 çocuk', 2, { sayfa: 'eksik' }), p('B5', 'Eksik ödevler · 4 çocuk', 4, { sayfa: 'eksik' }),
+        p('B2', 'Eksik yok', 2, { durum: 'eksik-yok' }), p('B1', 'Eksik yok · tek çocuk', 1, { durum: 'eksik-yok' }),
+        p('C2', 'Zeynep’in bağlantısı koptu', 2, { durum: 'kopuk', secili: 1 }),
+        p('C3', 'Yükleniyor', 2, { durum: 'yukleniyor' }), p('C4', 'İlk tarama bekleniyor', 1, { durum: 'veri-yok' }),
+        p('C5', 'Hiç çocuk yok', 1, { durum: 'cocuk-yok' }),
+        p('C1', 'Veri 2 saatten eski', 1, { durum: 'eski' }), p('C1', 'Çevrimdışı', 1, { durum: 'cevrimdisi' }),
+        p('B3', 'Takip öncesi ay (Ağustos)', 1, { ay: 7 }),
+        p('—', '360 px sınır kontrolü', 4, { w: 360 })
+      ],
+      hucreler: [
+        { gun: 24, ad: 'Eksik', not: 'Dolu elmas, sıcak toprak rengi', eksik: true, sayi: num(), zemin: 'transparent' },
+        { gun: 30, ad: 'Bekliyor', not: 'Boş halka, mürekkep', bekliyor: true, sayi: num(), zemin: 'transparent' },
+        { gun: 22, ad: 'Teslim / notlandı', not: 'Küçük dolu daire, yeşil', tamam: true, sayi: num(), zemin: 'transparent' },
+        { gun: 26, ad: 'Ödev yok', not: 'Nokta yok', sayi: num(), zemin: 'transparent' },
+        { gun: 29, ad: 'Bugün', not: 'İnce halka + kalın rakam', tamam: true, sayi: num({ kalin: true, border: '3px solid var(--murekkep)' }), zemin: 'transparent' },
+        { gun: 27, ad: 'Seçili', not: 'Dolu mürekkep daire', eksik: true, sayi: num({ kalin: true, bg: 'var(--murekkep)', renk: 'var(--ters)' }), zemin: 'transparent' },
+        { gun: 29, ad: 'Bugün + seçili', not: 'Dolu daire + iç halka', tamam: true, sayi: num({ kalin: true, bg: 'var(--murekkep)', renk: 'var(--ters)', border: '3px solid var(--murekkep)', shadow: 'inset 0 0 0 5px var(--ters)' }), zemin: 'transparent' },
+        { gun: 4, ad: 'Takip öncesi', not: 'Taralı zemin, soluk rakam', sayi: num({ renk: 'var(--murekkep-3)' }), zemin: 'var(--tarama)' }
+      ],
+      seciciler: [
+        { ad: '1 çocuk', not: '— seçici hiç çizilmez', n: '1' },
+        { ad: '2 çocuk', not: '— yatay: avatar + ad', n: '2' },
+        { ad: '4 çocuk', not: '— dikey: avatar üstte, ad altta', n: '4' }
+      ],
+      renkler: [
+        R('--zemin', 'oklch(0.972 0.009 85)', 'oklch(0.2 0.008 70)', 'Sayfa zemini'),
+        R('--yuzey', 'oklch(0.993 0.005 85)', 'oklch(0.24 0.009 70)', 'Kart, liste satırı, alt raf'),
+        R('--yuzey-2', 'oklch(0.942 0.011 85)', 'oklch(0.285 0.01 70)', 'İkincil zemin, iskelet, segment'),
+        R('--cizgi', 'oklch(0.885 0.013 80)', 'oklch(0.36 0.01 70)', 'Ayırıcılar, kenarlar'),
+        R('--murekkep', 'oklch(0.26 0.014 60)', 'oklch(0.93 0.01 85)', 'Metin, birincil düğme, seçili gün'),
+        R('--murekkep-2', 'oklch(0.43 0.014 60)', 'oklch(0.8 0.01 80)', 'İkincil metin'),
+        R('--murekkep-3', 'oklch(0.52 0.012 60)', 'oklch(0.7 0.01 80)', 'Üçüncül metin (≥4.5:1 zeminde)'),
+        R('--ters', 'oklch(0.985 0.006 85)', 'oklch(0.2 0.008 70)', 'Mürekkep üstü metin'),
+        R('--renk-eksik', 'oklch(0.6 0.13 48)', 'oklch(0.74 0.12 55)', 'Eksik noktası (elmas)'),
+        R('--renk-eksik-metin', 'oklch(0.46 0.12 45)', 'oklch(0.82 0.1 58)', 'Eksik etiketi metni, rozet'),
+        R('--renk-eksik-zemin', 'oklch(0.935 0.035 60)', 'oklch(0.31 0.045 50)', 'Eksik etiketi ve bant zemini'),
+        R('--renk-bekliyor', 'oklch(0.45 0.015 60)', 'oklch(0.78 0.01 80)', 'Bekliyor halkası'),
+        R('--renk-tamam', 'oklch(0.58 0.09 155)', 'oklch(0.74 0.09 155)', 'Teslim noktası'),
+        R('--renk-tamam-metin', 'oklch(0.42 0.08 155)', 'oklch(0.82 0.08 155)', 'Teslim etiketi metni'),
+        R('--renk-tamam-zemin', 'oklch(0.935 0.03 150)', 'oklch(0.29 0.03 155)', 'Teslim etiketi zemini'),
+        R('--perde', 'oklch(0.2 0.01 60 / 0.38)', 'oklch(0.08 0.005 70 / 0.6)', 'Sheet arkası')
+      ],
+      cocukRenk: [255, 330, 205, 285, 95, 15].map((t, i) => ({ ad: `--cocuk-${i + 1}`, ton: t, harf: ['A', 'Z', 'MA', 'D', 'E', 'K'][i], acik: `oklch(0.52 0.1 ${t})`, koyu: `oklch(0.74 0.09 ${t})` })),
+      yazilar: [
+        { ad: '--yazi-vurgu', olcu: '28 / 34', ornek: 'Hanenize bir ad verin', stil: { fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em' } },
+        { ad: '--yazi-baslik', olcu: '22 / 28', ornek: '3 eksik ödev', stil: { fontSize: 22, fontWeight: 700, letterSpacing: '-0.015em' } },
+        { ad: '--yazi-baslik-s', olcu: '17 / 24', ornek: 'Eylül 2026', stil: { fontSize: 17, fontWeight: 700 } },
+        { ad: '--yazi-govde', olcu: '15 / 22', ornek: 'Güneş, Dünya ve Ay - Model Yapımı', stil: { fontSize: 15, fontWeight: 600 } },
+        { ad: '--yazi-meta', olcu: '13 / 18', ornek: 'Din Kültürü ve Ahlak Bilgisi', stil: { fontSize: 13, color: 'var(--murekkep-2)' } },
+        { ad: '--yazi-kucuk', olcu: '12 / 16', ornek: 'Pzt Sal Çar Per Cum Cmt Paz', stil: { fontSize: 12, fontWeight: 600, color: 'var(--murekkep-3)' } }
+      ],
+      bosluklar: [['--bosluk-1', 4], ['--bosluk-2', 8], ['--bosluk-3', 12], ['--bosluk-4', 16], ['--bosluk-5', 20], ['--bosluk-6', 24], ['--bosluk-8', 32], ['--bosluk-10', 40]].map(([ad, v]) => ({ ad, px: v + 'px' })),
+      kararlar: [
+        { baslik: 'Çocuk seçici: alt raf (1a)', metin: 'En çok kullanılan kontrol başparmak bölgesinde, ekranın altında sabit. Tüm çocuklar hep görünür, geçiş tek dokunuş. 2 çocukta yatay (avatar + ad), 3–4 çocukta dikey (avatar üstte, ad altta) — 360 px’te 4 × 80 px, taşmıyor. Seçili durum renk dışında yükseltilmiş zemin, alt çizgi ve kalın adla da okunur. Avatar rozetinde eksik sayısı rakamla yazar. Tek çocukta raf hiç yok. 1b daha az yer kaplar ama 4 çocukta istenen çocuğa 3 dokunuş sürebilir ve diğer çocuklar görünmez.' },
+        { baslik: 'Durum bandı: hane geneli', metin: 'Bant seçiciden bağımsız, her zaman tüm haneyi özetler. Başlıkta toplam (“3 eksik ödev”), altında 2 sütunlu çocuk kartçıkları: ad bir satır, durum bir satır. 4 çocukta 2×2 olur, uzun ad (“Mehmet Ali”) kendi satırında kısalır, sayı hiç kesilmez. Sıralama sabit hane sırası, sayıya göre sıralanmaz: sıralama tablosu hissi yok. Eksik yoksa kartçıklar kalkar, tek satır kalır: “Eksik ödev yok”.' },
+        { baslik: 'Eksik listesi: bottom sheet', metin: 'Veli panodan ayrılmadan bakıp kapatır; takvim arkada bağlam olarak kalır. “Kapat” altta, başparmakta; panel %88’e kadar büyür ve kendi içinde kayar. Satırda çocuk avatarı ve “Ahmet · Matematik” ön eki: kimin olduğu hem renk hem metinle belli. Filtre çipleri yalnızca 2+ çocukta ve yalnızca eksiği olan çocuklar için; varsayılan “Tümü”. Masaüstünde sheet yok, liste sağ sütunda sürekli açık.' },
+        { baslik: 'Uzun ders adları', metin: 'Kısaltma yok: ders adı öğretmenin Classroom’da yazdığı ad, kısaltma yanlış eşleşmeye yol açar. Ders adı küçük meta satırında en fazla 2 satıra sarar, sonra üç nokta; ödev başlığı tam sarar. Derslere renk ya da ikon atanmıyor; renk durum ve çocuk için ayrılmış. Böylece iki çocukta ortak “Matematik” çakışması hiç oluşmuyor.' },
+        { baslik: 'Nokta durumları', metin: 'Üç durum, üç şekil: eksik = dolu elmas, bekliyor = boş halka, teslim/notlandı = küçük dolu daire. Renk körü kullanıcı şekilden ayırt eder; takvimin altında kalıcı lejant var. Bugün ince halka, seçili gün dolu mürekkep daire; ikisi aynı gündeyse dolu daire + iç halka. Günde birden çok durum varsa eksik › bekliyor › teslim.' },
+        { baslik: 'Tarihsiz ödevler ve takip öncesi', metin: 'Teslim tarihi olmayan ödevler seçili günün listesinin altında ayrı başlıkta durur; takvime düşmez, eksik sayılmaz. Takip başlangıcından (8 Eylül) önceki günler taralı ve soluk; altında “ödev görünmemesi eksik olmadığı anlamına gelmez” notu. Böylece geçmiş ay yanlış bir “hiç eksik yoktu” güveni vermiyor.' },
+        { baslik: 'Veri tazeliği ve çevrimdışı', metin: 'Hane adının altında soluk bir satır: “Güncellendi 12 dk önce”. 2 saati geçince çerçeveli bir çipe dönüşür; çevrimdışıyken son verinin saatini söyler ve son veri gösterilmeye devam eder. Ünlem, kırmızı ya da tam ekran uyarı yok.' },
+        { baslik: 'Kopuk bağlantı yalnızca o çocukta', metin: 'Bağlantısı kopan çocuğun kolonunun en üstünde kalıcı bir kutu: ne zaman koptu, verinin ne kadar eski olduğu ve “Yeniden izin iste”. Ayrıca takvim başlığında “27 Eylül verisi” etiketi, rafta avatarda kesikli halka, bantta “veri eski”. Diğer çocuğun panosu normal çalışır, hiçbir şey kilitlenmez.' },
+        { baslik: 'Çocuk bağlama akışı', metin: 'Tek cümlelik neden açıklaması en üstte. QR, çocuk yanındayken en hızlı yol olduğu için büyük ve ilk sırada; paylaş/kopyala altında. Bekleme durumu alt bantta kalıcı, iptal başparmakta. Çocuğun ekranında hangi ebeveynlerin göreceği adlarıyla yazıyor; görülebilecekler ve görülemeyecekler ayrı listelerde. İzin kaldırılırsa panoda bunun görüneceği de açıkça söyleniyor.' },
+        { baslik: 'Kurulum: 3 adım', metin: 'Hane adı (atlanabilir, varsayılan “Ailem”) → çocuk ekle ve bağla → ikinci ebeveyn (atlanabilir). İnce 3 parçalı ilerleme çubuğu ve “Adım 2 / 3”: teknik olmayan kullanıcı ne kadar kaldığını bilir. Tüm düğmeler ekranın alt yarısında.' },
+        { baslik: 'İkinci faza hazırlık', metin: 'Trend görünümü geldiğinde başlık ile durum bandı arasına “Takvim · Gidişat” iki parçalı bir segment eklenecek. Alt raf çocuk seçimi olarak kalır; görünüm seçimi ayrı bir yerde olduğu için ikisi karışmaz. Masaüstünde sağ sütun aynı sekmeyi taşır.' },
+        { baslik: 'Ton ve renk', metin: 'Marka vurgusu yok; birincil düğmeler mürekkep rengi. Eksik rengi kırmızı değil, sıcak toprak rengi. Metinler olgusal: “Teslim edilmedi — 2 gün geçti”, “Eksik ödev yok”. Çocuklar arasında kıyaslama, sıralama ya da skor yok.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

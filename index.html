@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- viewport-fit=cover: PWA tam ekranda env(safe-area-inset-*) değerlerinin
+         gerçek değer döndürmesi için şart. Olmadan iPhone'da her zaman 0 gelir. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- tema.css içindeki --zemin değerlerinin sRGB karşılıkları.
+         Açık: oklch(0.972 0.009 85) · Koyu: oklch(0.2 0.008 70) -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8F5EF" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181512" />
+    <meta name="description" content="Çocuklarınızın Google Classroom ödevleri, tek bakışta." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/ikonlar/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/ikonlar/favicon-48.png" />
+    <link rel="apple-touch-icon" href="/ikonlar/apple-touch-icon-180.png" />
+    <title>Ödev Defteri</title>
+  </head>
+  <body>
+    <div id="kok"></div>
+    <script type="module" src="/src/web/main.tsx"></script>
+  </body>
+</html>

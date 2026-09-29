@@ -1,0 +1,73 @@
+/* Ödev Defteri — tasarım değişkenleri. Uygulamada doğrudan kullanılabilir. */
+:root {
+  --yazi-aile: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --yazi-kucuk: 12px;   /* 16 satır — gün adları, lejant */
+  --yazi-meta: 13px;    /* 18 — ders adı, etiketler, tazelik */
+  --yazi-govde: 15px;   /* 22 — ödev başlığı, gövde */
+  --yazi-baslik-s: 17px;/* 24 — ay adı, bölüm başlığı */
+  --yazi-baslik: 22px;  /* 28 — durum bandı, ekran başlığı */
+  --yazi-vurgu: 28px;   /* 34 — kurulum ekran başlıkları */
+
+  --bosluk-1: 4px; --bosluk-2: 8px; --bosluk-3: 12px; --bosluk-4: 16px;
+  --bosluk-5: 20px; --bosluk-6: 24px; --bosluk-8: 32px; --bosluk-10: 40px;
+  --kose-s: 8px; --kose-m: 12px; --kose-l: 20px; --kose-tam: 999px;
+  --dokunma: 44px;
+
+  color-scheme: light;
+  --zemin: oklch(0.972 0.009 85);
+  --yuzey: oklch(0.993 0.005 85);
+  --yuzey-2: oklch(0.942 0.011 85);
+  --cizgi: oklch(0.885 0.013 80);
+  --murekkep: oklch(0.26 0.014 60);
+  --murekkep-2: oklch(0.43 0.014 60);
+  --murekkep-3: oklch(0.52 0.012 60);
+  --ters: oklch(0.985 0.006 85);
+
+  --renk-eksik: oklch(0.6 0.13 48);
+  --renk-eksik-metin: oklch(0.46 0.12 45);
+  --renk-eksik-zemin: oklch(0.935 0.035 60);
+  --renk-bekliyor: oklch(0.45 0.015 60);
+  --renk-tamam: oklch(0.58 0.09 155);
+  --renk-tamam-metin: oklch(0.42 0.08 155);
+  --renk-tamam-zemin: oklch(0.935 0.03 150);
+
+  /* Çocuk renkleri: oklch(L C ton[n]) — tonlar 255, 330, 205, 285, 95, 15 sırayla; durum tonlarından (45, 155) uzak */
+  --cocuk-L: 0.52; --cocuk-C: 0.1;
+  --cocuk-1: oklch(var(--cocuk-L) var(--cocuk-C) 255);
+  --cocuk-2: oklch(var(--cocuk-L) var(--cocuk-C) 330);
+  --cocuk-3: oklch(var(--cocuk-L) var(--cocuk-C) 205);
+  --cocuk-4: oklch(var(--cocuk-L) var(--cocuk-C) 285);
+  --cocuk-5: oklch(var(--cocuk-L) var(--cocuk-C) 95);
+  --cocuk-6: oklch(var(--cocuk-L) var(--cocuk-C) 15);
+  --cocuk-uzeri: oklch(0.99 0.004 85);
+
+  --tarama: repeating-linear-gradient(135deg, var(--cizgi) 0 1px, transparent 1px 6px);
+  --perde: oklch(0.2 0.01 60 / 0.38);
+  --golge-panel: 0 -8px 32px oklch(0.2 0.02 60 / 0.14);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="acik"]) {
+    color-scheme: dark;
+    --zemin: oklch(0.2 0.008 70); --yuzey: oklch(0.24 0.009 70); --yuzey-2: oklch(0.285 0.01 70);
+    --cizgi: oklch(0.36 0.01 70); --murekkep: oklch(0.93 0.01 85); --murekkep-2: oklch(0.8 0.01 80);
+    --murekkep-3: oklch(0.7 0.01 80); --ters: oklch(0.2 0.008 70);
+    --renk-eksik: oklch(0.74 0.12 55); --renk-eksik-metin: oklch(0.82 0.1 58); --renk-eksik-zemin: oklch(0.31 0.045 50);
+    --renk-bekliyor: oklch(0.78 0.01 80); --renk-tamam: oklch(0.74 0.09 155); --renk-tamam-metin: oklch(0.82 0.08 155); --renk-tamam-zemin: oklch(0.29 0.03 155);
+    --cocuk-L: 0.74; --cocuk-C: 0.09; --cocuk-uzeri: oklch(0.2 0.008 70);
+    --perde: oklch(0.08 0.005 70 / 0.6); --golge-panel: 0 -8px 32px oklch(0 0 0 / 0.4);
+  }
+}
+:root[data-tema="koyu"] {
+  color-scheme: dark;
+  --zemin: oklch(0.2 0.008 70); --yuzey: oklch(0.24 0.009 70); --yuzey-2: oklch(0.285 0.01 70);
+  --cizgi: oklch(0.36 0.01 70); --murekkep: oklch(0.93 0.01 85); --murekkep-2: oklch(0.8 0.01 80);
+  --murekkep-3: oklch(0.7 0.01 80); --ters: oklch(0.2 0.008 70);
+  --renk-eksik: oklch(0.74 0.12 55); --renk-eksik-metin: oklch(0.82 0.1 58); --renk-eksik-zemin: oklch(0.31 0.045 50);
+  --renk-bekliyor: oklch(0.78 0.01 80); --renk-tamam: oklch(0.74 0.09 155); --renk-tamam-metin: oklch(0.82 0.08 155); --renk-tamam-zemin: oklch(0.29 0.03 155);
+  --cocuk-L: 0.74; --cocuk-C: 0.09; --cocuk-uzeri: oklch(0.2 0.008 70);
+  --perde: oklch(0.08 0.005 70 / 0.6); --golge-panel: 0 -8px 32px oklch(0 0 0 / 0.4);
+}
+body { margin: 0; background: var(--zemin); color: var(--murekkep); font-family: var(--yazi-aile); }
+a { color: var(--murekkep); }
+a:hover { color: var(--murekkep-2); }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--murekkep); outline-offset: 2px; }
