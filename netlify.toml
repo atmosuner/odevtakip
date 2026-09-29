@@ -13,6 +13,19 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Statik bilgi sayfaları. SPA yakalayıcısından ÖNCE gelmeli, yoksa
+# index.html'e düşerler. Google OAuth yapılandırması bu iki adresi
+# istiyor (homepage ve privacy policy).
+[[redirects]]
+  from = "/gizlilik"
+  to = "/gizlilik.html"
+  status = 200
+
+[[redirects]]
+  from = "/hakkinda"
+  to = "/hakkinda.html"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

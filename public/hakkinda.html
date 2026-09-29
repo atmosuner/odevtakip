@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ödev Defteri — Hakkında</title>
+<meta name="description" content="Veliler çocuklarının Google Classroom ödevlerini tek panodan takip eder.">
+<link rel="icon" type="image/png" sizes="32x32" href="/ikonlar/favicon-32.png">
+<style>
+  :root {
+    color-scheme: light;
+    --zemin: #F8F5EF; --yuzey: #FEFDF9; --cizgi: #E0DBD2;
+    --murekkep: #2B2622; --murekkep-2: #5B534B; --murekkep-3: #736A61;
+    --vurgu: #BD6533;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --zemin: #181512; --yuzey: #221F1B; --cizgi: #3A342E;
+      --murekkep: #ECE8E1; --murekkep-2: #C9C2B9; --murekkep-3: #ADA49A;
+      --vurgu: #D98A57;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 20px 64px;
+    background: var(--zemin); color: var(--murekkep);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h2 { font-size: 19px; margin: 36px 0 10px; letter-spacing: -0.01em; }
+  p, li { color: var(--murekkep-2); }
+  .ust { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .ust img { width: 56px; height: 56px; border-radius: 13px; }
+  .alt-baslik { color: var(--murekkep-3); margin: 0; font-size: 15px; }
+  ul { padding-left: 20px; }
+  li { margin: 5px 0; }
+  .kutu {
+    background: var(--yuzey); border: 1px solid var(--cizgi);
+    border-radius: 14px; padding: 16px 20px; margin: 20px 0;
+  }
+  .kutu p:first-child { margin-top: 0; }
+  .kutu p:last-child { margin-bottom: 0; }
+  a { color: var(--vurgu); }
+  footer {
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--cizgi);
+    font-size: 14px; color: var(--murekkep-3);
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="ust">
+    <img src="/ikonlar/icon-192.png" alt="">
+    <div>
+      <h1>Ödev Defteri</h1>
+      <p class="alt-baslik">Çocuklarınızın Google Classroom ödevleri, tek bakışta.</p>
+    </div>
+  </div>
+
+  <p>
+    Ödev Defteri, velilerin çocuklarının Google Classroom'daki ödevlerini tek bir
+    panodan takip etmesini sağlar. Hangi ödevlerin teslim edilmediğini, son teslim
+    tarihlerini ve öğretmenin verdiği notları gösterir.
+  </p>
+
+  <h2>Ne yapar</h2>
+  <ul>
+    <li>Teslim edilmemiş ve süresi geçmiş ödevleri listeler</li>
+    <li>Ödevleri aylık takvimde gösterir</li>
+    <li>Teslim durumunu ve notları görüntüler</li>
+    <li>Bir hanedeki birden fazla ebeveyn ve birden fazla çocuğu destekler</li>
+  </ul>
+
+  <h2>Ne yapmaz</h2>
+  <p>
+    Uygulama <strong>salt okunurdur</strong>. Buradan ödev verilemez, not girilemez,
+    ödev teslim edilemez, öğretmenle iletişim kurulamaz. Çocuğun teslim ettiği
+    dosyaların içeriği, mesajları veya e-postaları okunmaz.
+  </p>
+
+  <h2>Erişim nasıl veriliyor</h2>
+  <div class="kutu">
+    <p>
+      Google, velinin kendi hesabıyla çocuğun ödevlerini okumasına izin vermez.
+      Bu yüzden erişimi <strong>çocuğun kendisi</strong> verir: veli bir bağlantı
+      (QR kod) üretir, çocuk kendi cihazında açar, neyin paylaşılacağını okur ve
+      kendi Google hesabıyla onaylar.
+    </p>
+    <p>
+      Çocuk bu izni istediği zaman
+      <a href="https://myaccount.google.com/permissions">Google hesap ayarlarından</a>
+      geri alabilir.
+    </p>
+  </div>
+
+  <h2>Gizlilik</h2>
+  <p>
+    Hangi verilerin toplandığı, ne için kullanıldığı ve nasıl silineceği
+    <a href="/gizlilik">Gizlilik Politikası</a> sayfasında açıklanmıştır.
+  </p>
+
+  <footer>
+    <p>
+      <a href="/">Uygulamayı aç</a> &nbsp;·&nbsp;
+      <a href="/gizlilik">Gizlilik Politikası</a>
+    </p>
+  </footer>
+</main>
+</body>
+</html>

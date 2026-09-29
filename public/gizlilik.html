@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ödev Defteri — Gizlilik Politikası</title>
+<meta name="description" content="Ödev Defteri'nin topladığı veriler, kullanım amacı ve silme yöntemi.">
+<link rel="icon" type="image/png" sizes="32x32" href="/ikonlar/favicon-32.png">
+<style>
+  :root {
+    color-scheme: light;
+    --zemin: #F8F5EF; --yuzey: #FEFDF9; --cizgi: #E0DBD2;
+    --murekkep: #2B2622; --murekkep-2: #5B534B; --murekkep-3: #736A61;
+    --vurgu: #BD6533;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --zemin: #181512; --yuzey: #221F1B; --cizgi: #3A342E;
+      --murekkep: #ECE8E1; --murekkep-2: #C9C2B9; --murekkep-3: #ADA49A;
+      --vurgu: #D98A57;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 20px 64px;
+    background: var(--zemin); color: var(--murekkep);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 27px; line-height: 1.25; margin: 0 0 4px; letter-spacing: -0.02em; }
+  h2 { font-size: 19px; margin: 34px 0 10px; letter-spacing: -0.01em; }
+  h3 { font-size: 16px; margin: 20px 0 6px; }
+  p, li, td, th { color: var(--murekkep-2); }
+  .tarih { color: var(--murekkep-3); font-size: 14px; margin: 0 0 28px; }
+  ul { padding-left: 20px; }
+  li { margin: 5px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--cizgi); vertical-align: top; }
+  th { color: var(--murekkep); font-weight: 600; }
+  .kutu {
+    background: var(--yuzey); border: 1px solid var(--cizgi);
+    border-radius: 14px; padding: 16px 20px; margin: 20px 0;
+  }
+  .kutu p:first-child { margin-top: 0; }
+  .kutu p:last-child { margin-bottom: 0; }
+  a { color: var(--vurgu); }
+  code { font-size: 14px; background: var(--yuzey); padding: 1px 5px; border-radius: 5px; }
+  footer {
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--cizgi);
+    font-size: 14px; color: var(--murekkep-3);
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Gizlilik Politikası</h1>
+  <p class="tarih">Son güncelleme: 29 Eylül 2026</p>
+
+  <p>
+    Ödev Defteri, velilerin çocuklarının Google Classroom ödevlerini takip
+    etmesini sağlayan bir uygulamadır. Bu sayfa hangi verilerin toplandığını,
+    ne için kullanıldığını ve nasıl silineceğini açıklar.
+  </p>
+
+  <h2>Toplanan veriler</h2>
+
+  <table>
+    <tr>
+      <th>Veri</th>
+      <th>Kaynak</th>
+      <th>Neden</th>
+    </tr>
+    <tr>
+      <td>Velinin e-posta adresi</td>
+      <td>Veli girer</td>
+      <td>Giriş bağlantısı göndermek ve haneyi tanımlamak</td>
+    </tr>
+    <tr>
+      <td>Çocuğun adı ve sınıfı</td>
+      <td>Veli girer</td>
+      <td>Panoda çocukları ayırt etmek</td>
+    </tr>
+    <tr>
+      <td>Ders adları, ödev başlıkları, son teslim tarihleri</td>
+      <td>Google Classroom</td>
+      <td>Ödev listesini ve takvimi göstermek</td>
+    </tr>
+    <tr>
+      <td>Teslim durumu ve teslim geçmişi</td>
+      <td>Google Classroom</td>
+      <td>Eksik ödevleri belirlemek</td>
+    </tr>
+    <tr>
+      <td>Öğretmenin verdiği notlar</td>
+      <td>Google Classroom</td>
+      <td>Notları panoda göstermek</td>
+    </tr>
+    <tr>
+      <td>Google yetkilendirme anahtarı (refresh token)</td>
+      <td>Çocuğun izni</td>
+      <td>Verileri periyodik olarak yenilemek</td>
+    </tr>
+  </table>
+
+  <h3>Toplanmayanlar</h3>
+  <ul>
+    <li>Çocuğun teslim ettiği dosyaların içeriği</li>
+    <li>Classroom yorumları, mesajlar, e-postalar</li>
+    <li>Konum, kişi listesi, tarayıcı geçmişi</li>
+    <li>Reklam tanımlayıcıları veya izleme çerezleri</li>
+  </ul>
+
+  <h2>Verilere kimler erişir</h2>
+  <p>
+    Bir çocuğun verilerini yalnızca aynı hanedeki ebeveynler görebilir.
+    Haneler birbirinden tamamen ayrıdır; bir hane başka bir hanenin verisine
+    erişemez.
+  </p>
+
+  <h2>Google kullanıcı verisinin kullanımı</h2>
+  <div class="kutu">
+    <p>
+      Ödev Defteri'nin Google API'lerinden aldığı bilgileri kullanması ve
+      aktarması,
+      <a href="https://developers.google.com/terms/api-services-user-data-policy">
+        Google API Services User Data Policy</a>'ye ve bu politikanın
+      <strong>Limited Use</strong> gerekliliklerine uygundur.
+    </p>
+    <p>Somut olarak:</p>
+    <ul>
+      <li>Google Classroom verileri yalnızca panonun kullanıcıya görünür
+          işlevini sağlamak için kullanılır.</li>
+      <li>Bu veriler reklam amacıyla kullanılmaz ve reklam platformlarına
+          aktarılmaz.</li>
+      <li>Bu veriler satılmaz ve üçüncü taraflara aktarılmaz.</li>
+      <li>Bu verileri insanlar okumaz. Tek istisna: kullanıcının açık izniyle
+          yapılan hata giderme, yasal zorunluluk ve verinin anonimleştirilmiş
+          ya da toplulaştırılmış hâlleri.</li>
+    </ul>
+  </div>
+
+  <h2>Verilerin saklanması</h2>
+  <p>
+    Veriler Netlify Blobs üzerinde saklanır. Google yetkilendirme anahtarları
+    <strong>AES-256-GCM</strong> ile şifrelenir; şifre çözme anahtarı veri
+    deposunda değil, ayrı bir yapılandırma ortamında tutulur. Her anahtar
+    ilgili çocuğun kimliğine kriptografik olarak bağlıdır.
+  </p>
+  <p>
+    Bağlantılar HTTPS üzerinden kurulur. Oturum çerezi
+    <code>HttpOnly</code>, <code>Secure</code> ve imzalıdır.
+  </p>
+
+  <h2>Saklama süresi ve silme</h2>
+  <p>Veriler şu durumlarda silinir:</p>
+  <ul>
+    <li><strong>Veli çocuğun bağlantısını kaldırdığında</strong> — o çocuğa ait
+        tüm ödev verisi ve geçmişi kalıcı olarak silinir.</li>
+    <li><strong>Çocuk Google hesabından izni geri aldığında</strong> — veri
+        yenilenmeyi durdurur; hanedeki veliler kaldırma işlemini yapana kadar
+        son alınan veri panoda kalır.</li>
+    <li><strong>Hane silindiğinde</strong> — hanenin tüm verisi silinir.</li>
+  </ul>
+  <p>
+    Çocuk, verdiği izni istediği zaman
+    <a href="https://myaccount.google.com/permissions">Google hesap ayarlarından</a>
+    geri alabilir. Bunun için velinin onayı gerekmez.
+  </p>
+
+  <h2>Çocuklara ait veriler</h2>
+  <p>
+    Uygulama tasarımı gereği çocuklara ait eğitim verisi işler. Erişim, çocuğun
+    kendi Google hesabıyla verdiği açık izne dayanır; izin ekranında hangi
+    verilerin paylaşılacağı ve neyin paylaşılmayacağı çocuğa açıkça gösterilir.
+    Uygulama çocuklara yönelik reklam içermez ve profilleme yapmaz.
+  </p>
+
+  <h2>Üçüncü taraf hizmetler</h2>
+  <ul>
+    <li><strong>Google</strong> — Classroom verisi ve kimlik doğrulama</li>
+    <li><strong>Netlify</strong> — barındırma ve veri deposu</li>
+    <li><strong>Resend</strong> — giriş bağlantısı e-postaları (yalnızca
+        e-posta adresi iletilir)</li>
+  </ul>
+  <p>Bunların dışında hiçbir analiz, izleme veya reklam hizmeti kullanılmaz.</p>
+
+  <h2>Politikadaki değişiklikler</h2>
+  <p>
+    Bu politika değişirse sayfanın üstündeki tarih güncellenir. Toplanan veri
+    türü veya kullanım amacı esaslı olarak değişirse veliler e-posta ile
+    bilgilendirilir.
+  </p>
+
+  <h2>İletişim</h2>
+  <!-- DOLDURULACAK: aşağıdaki iki yerdeki adresi kendi e-postanla değiştir. -->
+  <p>
+    Sorularınız, veri silme talepleriniz veya itirazlarınız için:
+    <a href="mailto:ornek@alan-adiniz.com">ornek@alan-adiniz.com</a>
+  </p>
+
+  <footer>
+    <p>
+      <a href="/hakkinda">Hakkında</a> &nbsp;·&nbsp;
+      <a href="/">Uygulamayı aç</a>
+    </p>
+  </footer>
+</main>
+</body>
+</html>
