@@ -77,8 +77,6 @@ export const tazele = () => cagir<TazeleYaniti>('/api/tazele', { method: 'POST' 
 
 export interface GirisYaniti {
   gonderildi: boolean;
-  /** Yalnızca geliştirmede: e-posta yapılandırılmamışsa bağlantı burada. */
-  gelistirmeBaglantisi?: string;
 }
 
 export const girisIste = (eposta: string) =>
@@ -140,7 +138,7 @@ export const cocukSil = (cocukId: string) =>
     `/api/cocuk?cocukId=${encodeURIComponent(cocukId)}`, { method: 'DELETE' });
 
 export const ebeveynDavetEt = (eposta: string) =>
-  cagir<{ davetEdildi: boolean; eposta: string; gelistirmeBaglantisi?: string }>(
+  cagir<{ davetEdildi: boolean; eposta: string }>(
     '/api/ebeveyn', { method: 'POST', body: JSON.stringify({ eposta }) });
 
 export const ebeveynCikar = (ebeveynId: string) =>

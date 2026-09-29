@@ -92,15 +92,9 @@ async function davetEt(istek: Request, haneId: string): Promise<Response> {
     kullanildiUtc: null,
   });
 
-  const gonderim = await girisBaglantisiGonder(eposta, girisBaglantisi(istek, girisBilet));
+  await girisBaglantisiGonder(eposta, girisBaglantisi(istek, girisBilet));
 
-  return json({
-    davetEdildi: true,
-    eposta,
-    ...(gonderim.gelistirmeBaglantisi
-      ? { gelistirmeBaglantisi: gonderim.gelistirmeBaglantisi }
-      : {}),
-  });
+  return json({ davetEdildi: true, eposta });
 }
 
 async function cikar(

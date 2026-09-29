@@ -152,10 +152,9 @@ function HesapSayfasi(p: {
 
     void calistir(async () => {
       if (hedef === 'eposta') {
-        const s = await api.girisIste(h.form.eposta);
-        if (s.gelistirmeBaglantisi) {
-          console.log('[geliştirme] giriş bağlantısı:', s.gelistirmeBaglantisi);
-        }
+        // Yanıt bilinçli olarak bağlantı içermiyor; e-posta yapılandırılmamışsa
+        // bağlantı yalnızca sunucu günlüğünde olur.
+        await api.girisIste(h.form.eposta);
       } else if (hedef === 'kurulum2' && h.form.hane.trim()) {
         await api.haneAdiDegistir(h.form.hane.trim());
       } else if (hedef === 'bagla') {

@@ -6,8 +6,6 @@
 
 interface Gonderim {
   gonderildi: boolean;
-  /** Yapılandırma yoksa bağlantı buraya konur (yalnızca geliştirme). */
-  gelistirmeBaglantisi?: string;
 }
 
 export async function girisBaglantisiGonder(
@@ -18,12 +16,17 @@ export async function girisBaglantisiGonder(
   const gonderen = process.env.EPOSTA_GONDEREN;
 
   if (!anahtar || !gonderen) {
-    // Üretimde bu bir yapılandırma hatasıdır; sessizce geçilmemeli.
-    if (process.env.NETLIFY_ORTAM === 'uretim') {
-      throw new Error('RESEND_ANAHTAR / EPOSTA_GONDEREN tanımlı değil.');
-    }
+    // Bağlantı YALNIZCA sunucu günlüğüne yazılır, asla HTTP yanıtına konmaz.
+    //
+    // Yanıta koymak, adrese erişimi olmayan birinin o hesaba giriş bağlantısı
+    // almasına izin verirdi. Bunu bir ortam değişkenine bağlamak yeterli
+    // değil: değişken eksik ya da yanlış yazılmışsa site savunmasız kalır.
+    // Güvenli davranış yapılandırmadan bağımsız olmalı.
+    //
+    // Yerel geliştirmede ve ilk kurulumda bağlantı sunucu günlüğünden
+    // okunur (Netlify: Logs > Functions > giris).
     console.log(`[eposta] ${eposta} için giriş bağlantısı: ${baglanti}`);
-    return { gonderildi: false, gelistirmeBaglantisi: baglanti };
+    return { gonderildi: false };
   }
 
   const cevap = await fetch('https://api.resend.com/emails', {

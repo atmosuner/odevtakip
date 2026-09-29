@@ -43,15 +43,11 @@ export default async (istek: Request, _baglam: Context): Promise<Response> => {
       kullanildiUtc: null,
     });
 
-    const gonderim = await girisBaglantisiGonder(eposta, girisBaglantisi(istek, bilet));
+    await girisBaglantisiGonder(eposta, girisBaglantisi(istek, bilet));
 
-    // Aynı yanıt: adres kayıtlı olsa da olmasa da.
-    return json({
-      gonderildi: true,
-      ...(gonderim.gelistirmeBaglantisi
-        ? { gelistirmeBaglantisi: gonderim.gelistirmeBaglantisi }
-        : {}),
-    });
+    // Aynı yanıt: adres kayıtlı olsa da olmasa da, e-posta yapılandırılmış
+    // olsa da olmasa da. Yanıt hiçbir koşulda giriş bağlantısı içermez.
+    return json({ gonderildi: true });
   } catch (e) {
     return icHata(e, 'giris');
   }

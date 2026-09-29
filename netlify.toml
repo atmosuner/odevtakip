@@ -41,6 +41,13 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
 
 # Font ve ikonlar içerik özetli değil ama nadiren değişir; orta ömür yeterli.
+# Netlify bu uzantıyı tanımayıp application/octet-stream sunuyor;
+# bazı tarayıcılar o tipte manifesti yok sayıp PWA kurulumunu engelliyor.
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+
 [[headers]]
   for = "/fonts/*"
   [headers.values]
